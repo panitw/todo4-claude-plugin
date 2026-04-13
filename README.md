@@ -28,17 +28,20 @@ Paste into a new chat:
 
 Cowork will present a **Save plugin** card — click it to install. (Cowork narrates a brief "packaging" step while it wraps the repo for its install card. That's normal — ignore it.)
 
-### First-time setup: run `/todo4:connect`
+### First-time setup: authenticate the MCP connection
 
-After install, the plugin is registered but **not yet authenticated**. Some clients (notably Claude Cowork) don't probe the MCP server until a tool is actually called, so authentication doesn't happen at install time. Run the connect command to prime it:
+After install, the plugin is registered but **not yet authenticated**. How you authenticate depends on the client:
 
-```
-/todo4:connect
-```
+**Claude Code CLI** — the OAuth flow works automatically. Run `/mcp`, select `todo4`, and approve the sign-in. Or just call any Todo4 tool and the OAuth tab opens on the 401.
 
-This calls a lightweight Todo4 tool, which forces the client to hit the server, get a 401, and launch OAuth against [todo4.io](https://todo4.io) in a new browser tab. Approve the request once — tokens are refreshed automatically after that. No tokens to paste.
+**Claude Cowork (claude.ai)** — Cowork does **not** currently launch OAuth for plugin-supplied MCP servers from chat. You need to authenticate through the Cowork UI:
 
-If you don't have a Todo4 account yet, OAuth will create one for you on first sign-in.
+1. Open **Settings → Personal plugins → Todo4 → Connectors**. If you see a **Connect** / **Authenticate** button next to the Todo4 MCP server, click it and complete sign-in there.
+2. If no connect button appears, add Todo4 as a **Custom Connector** instead: **Settings → Connectors → Add custom connector**, URL `https://todo4.io/mcp`. Cowork's custom-connector flow handles OAuth end-to-end.
+
+Once authenticated, run `/todo4:connect` in chat to confirm — it should reply with your tier. If you don't have a Todo4 account yet, OAuth will create one for you on first sign-in.
+
+> **Note on `/todo4:connect`**: this command only *checks* the connection and shows setup instructions if you're not signed in. It does not itself trigger OAuth (the MCP client owns that flow).
 
 ## Usage
 
