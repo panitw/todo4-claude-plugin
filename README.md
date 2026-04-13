@@ -10,12 +10,22 @@ Task management for Claude Code. Create, update, and query tasks across sessions
 
 ## Install
 
-In Claude Code, register this repo as a plugin marketplace and install the plugin:
+### Claude Code (CLI)
+
+Register this repo as a plugin marketplace and install the plugin:
 
 ```
 /plugin marketplace add panitw/todo4-claude-plugin
 /plugin install todo4@todo4
 ```
+
+### Claude Cowork (claude.ai)
+
+Paste into a new chat:
+
+> Install this Claude Code plugin: https://github.com/panitw/todo4-claude-plugin
+
+Cowork will present a **Save plugin** card — click it to install. (Cowork narrates a brief "packaging" step while it wraps the repo for its install card. That's normal — ignore it.)
 
 ### First-time setup: trigger authentication
 
