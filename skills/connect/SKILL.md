@@ -19,16 +19,20 @@ Reply (one line, substitute `[tier]`):
 
 ### Branch B — Tool not available / 401 / "Authentication required"
 
-The MCP server isn't authenticated. In Cowork specifically, the chat side can't launch OAuth for plugin-supplied MCP servers — the user has to set up auth through the Cowork UI (or use Claude Code CLI). Reply with this message, verbatim:
+The MCP server isn't authenticated. The OAuth flow is owned by the MCP client (Cowork or CLI), not this skill — so the user must complete it through the client's UI. Reply with this message, verbatim:
 
 > Todo4 isn't connected yet, and I can't open the OAuth flow from chat. Pick the path that matches where you are:
 >
-> **In Cowork:**
-> 1. Open **Settings → Personal plugins → Todo4 → Connectors**. If you see a Connect / Authenticate button next to the Todo4 MCP server, click it and complete sign-in.
-> 2. If no button appears, add Todo4 as a **Custom Connector** instead: **Settings → Connectors → Add custom connector** with URL `https://todo4.io/mcp`. The custom connector flow handles OAuth.
+> **In Cowork (recommended):** Add Todo4 as a **Custom Connector**:
+> 1. Go to **Settings → Connectors → Add custom connector**.
+> 2. Paste URL: `https://todo4.io/mcp`
+> 3. Click **Connect** and complete Todo4 sign-in in the browser tab that opens.
 >
-> **In Claude Code CLI:**
-> Run `/mcp`, select `todo4`, and follow the auth prompt.
+> For a guided setup with screenshots: **https://todo4.io/setup/cowork**
+>
+> (The Cowork plugin-install path has a known OAuth bug — use the Custom Connector path above instead. Requires Claude Pro or Max.)
+>
+> **In Claude Code CLI:** Run `/mcp`, select `todo4`, and follow the auth prompt.
 >
 > Once you've signed in, re-run `/todo4:connect` to confirm.
 
