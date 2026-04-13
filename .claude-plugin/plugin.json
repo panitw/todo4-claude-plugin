@@ -1,0 +1,13 @@
+{
+  "name": "todo4",
+  "version": "0.1.0",
+  "description": "Task management for Claude Code. Create, update, and query tasks across sessions with 16 MCP tools backed by todo4.io. Includes a /todo4:status convenience command.",
+  "author": {
+    "name": "Panit Wechasil",
+    "url": "https://todo4.io"
+  },
+  "homepage": "https://todo4.io",
+  "repository": "https://github.com/panitw/todo4-claude-plugin",
+  "license": "MIT",
+  "keywords": ["todo", "tasks", "task-management", "productivity", "mcp"]
+}
