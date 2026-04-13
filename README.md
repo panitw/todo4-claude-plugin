@@ -13,16 +13,18 @@ Task management for Claude Code. Create, update, and query tasks across sessions
 
 Pick the install path for your client:
 
-### Claude Cowork (claude.ai) — recommended
+### Claude (any client) — recommended
 
-Todo4 works best in Cowork as a **Custom Connector**. The plugin-install path in Cowork currently has a known OAuth bug ([anthropics/claude-code #28695](https://github.com/anthropics/claude-code/issues/28695)) that prevents plugin-supplied MCP servers from authenticating — so while you *can* install the plugin, you can't actually use the tools yet. Use the Custom Connector path instead:
+Todo4 works best as a **Custom Connector** — the same setup works in Claude Chat, Cowork, and Desktop:
 
-1. In Cowork, go to **Settings → Connectors → Add custom connector**.
+1. In Claude, go to **Settings → Connectors → Add custom connector**.
 2. Paste URL: `https://todo4.io/mcp`
-3. Click **Connect** — Cowork opens a browser tab, you sign in with Todo4 (OAuth creates an account if you don't have one), approve the scopes, and land back in Cowork authenticated.
+3. Click **Connect** — a browser tab opens, you sign in with Todo4 (OAuth creates an account if you don't have one), approve the scopes, and land back in Claude authenticated.
 4. Start using Todo4: ask Claude *"list my tasks"*, *"create a task to review Q2 report by Friday"*, etc.
 
-> **Tier note:** Custom Connectors require Claude **Pro** or **Max**. Custom Connectors may also need re-authentication after very long conversations due to a compaction bug ([#34832](https://github.com/anthropics/claude-code/issues/34832)) — just click Connect again if tools stop working.
+> **Tier note:** Custom Connectors require Claude **Pro** or **Max**.
+>
+> **Cowork-specific caveat:** in Cowork only, Custom Connectors may need re-authentication after very long conversations due to a compaction bug ([#34832](https://github.com/anthropics/claude-code/issues/34832)) — just click Connect again if tools stop working.
 
 For a guided setup with screenshots, see **[todo4.io/setup/cowork](https://todo4.io/setup/cowork)**.
 
@@ -37,9 +39,9 @@ Register this repo as a plugin marketplace and install the plugin:
 
 Then authenticate: run `/mcp`, select `todo4`, and approve the sign-in. Or just call any Todo4 tool — the OAuth tab opens automatically on the 401.
 
-### Claude Cowork plugin install (experimental, not recommended yet)
+### Cowork plugin install (experimental, not recommended yet)
 
-You can also install Todo4 as a Cowork plugin (`Install this Claude Code plugin: https://github.com/panitw/todo4-claude-plugin`), but authentication currently fails due to the known Cowork bug above. Use the Custom Connector path instead until Anthropic ships the fix.
+You can also install Todo4 as a plugin in Cowork (`Install this Claude Code plugin: https://github.com/panitw/todo4-claude-plugin`), but Cowork specifically has an OAuth bug ([anthropics/claude-code #28695](https://github.com/anthropics/claude-code/issues/28695)) that prevents plugin-supplied MCP servers from authenticating. Use the Custom Connector path above until Anthropic ships the fix.
 
 ## Usage
 
