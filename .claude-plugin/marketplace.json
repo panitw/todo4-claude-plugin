@@ -1,0 +1,15 @@
+{
+  "name": "todo4",
+  "owner": {
+    "name": "Panit Wechasil",
+    "url": "https://todo4.io"
+  },
+  "plugins": [
+    {
+      "name": "todo4",
+      "source": "./",
+      "description": "Task management for Claude Code — 16 MCP tools backed by todo4.io, plus a /todo4:status command.",
+      "version": "0.1.0"
+    }
+  ]
+}

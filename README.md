@@ -10,21 +10,16 @@ Task management for Claude Code. Create, update, and query tasks across sessions
 
 ## Install
 
-```bash
-claude plugin install todo4@anthropic-marketplace
+In Claude Code, register this repo as a plugin marketplace and install the plugin:
+
+```
+/plugin marketplace add panitw/todo4-claude-plugin
+/plugin install todo4@todo4
 ```
 
 On first use of any `todo4` tool, Claude Code walks you through OAuth against [todo4.io](https://todo4.io). No tokens to paste — the custom-connector style flow handles it.
 
 If you don't have a Todo4 account yet, OAuth will create one for you on first sign-in.
-
-### Install from this repo (pre-marketplace)
-
-```bash
-claude --plugin-dir /path/to/todo4-claude-plugin
-```
-
-Or add via `/plugin` in Claude Code and point at this repository.
 
 ## Usage
 
