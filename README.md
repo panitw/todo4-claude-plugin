@@ -1,10 +1,11 @@
 # Todo4 — Claude Code Plugin
 
-Task management for Claude Code. Create, update, and query tasks across sessions via 16 MCP tools backed by [todo4.io](https://todo4.io), plus a `/todo4:status` convenience command.
+Task management for Claude Code. Create, update, and query tasks across sessions via 16 MCP tools backed by [todo4.io](https://todo4.io), plus `/todo4:connect` and `/todo4:status` convenience commands.
 
 ## What you get
 
 - **16 MCP tools** — `list_tasks`, `create_task`, `update_task`, `close_task`, `add_subtask`, `add_comment`, `notify_human`, and more. Claude can call these automatically based on your requests.
+- **`/todo4:connect`** — prime the OAuth flow on first install and confirm the session is authenticated.
 - **`/todo4:status`** — a single command that shows overdue tasks, tasks due today, and your top open items ranked by priority.
 - **Cross-session persistence** — tasks live in your Todo4 account, not in local files. They follow you across projects, devices, and agents.
 
@@ -27,13 +28,15 @@ Paste into a new chat:
 
 Cowork will present a **Save plugin** card — click it to install. (Cowork narrates a brief "packaging" step while it wraps the repo for its install card. That's normal — ignore it.)
 
-### First-time setup: trigger authentication
+### First-time setup: run `/todo4:connect`
 
-After install, the plugin is registered but **not yet authenticated**. Some clients (notably Claude Cowork on claude.ai) don't probe the MCP server until a tool is actually called — so you need to prime it with one prompt:
+After install, the plugin is registered but **not yet authenticated**. Some clients (notably Claude Cowork) don't probe the MCP server until a tool is actually called, so authentication doesn't happen at install time. Run the connect command to prime it:
 
-> *"List my todo4 tasks"* — or any question that needs Todo4.
+```
+/todo4:connect
+```
 
-On that first tool call, the client hits the server, gets a 401, and launches OAuth against [todo4.io](https://todo4.io) in a new browser tab. Approve the request once and you're done — tokens are refreshed automatically after that. No tokens to paste.
+This calls a lightweight Todo4 tool, which forces the client to hit the server, get a 401, and launch OAuth against [todo4.io](https://todo4.io) in a new browser tab. Approve the request once — tokens are refreshed automatically after that. No tokens to paste.
 
 If you don't have a Todo4 account yet, OAuth will create one for you on first sign-in.
 
