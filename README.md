@@ -17,7 +17,13 @@ In Claude Code, register this repo as a plugin marketplace and install the plugi
 /plugin install todo4@todo4
 ```
 
-On first use of any `todo4` tool, Claude Code walks you through OAuth against [todo4.io](https://todo4.io). No tokens to paste — the custom-connector style flow handles it.
+### First-time setup: trigger authentication
+
+After install, the plugin is registered but **not yet authenticated**. Some clients (notably Claude Cowork on claude.ai) don't probe the MCP server until a tool is actually called — so you need to prime it with one prompt:
+
+> *"List my todo4 tasks"* — or any question that needs Todo4.
+
+On that first tool call, the client hits the server, gets a 401, and launches OAuth against [todo4.io](https://todo4.io) in a new browser tab. Approve the request once and you're done — tokens are refreshed automatically after that. No tokens to paste.
 
 If you don't have a Todo4 account yet, OAuth will create one for you on first sign-in.
 
